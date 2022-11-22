@@ -23,3 +23,11 @@ The main stack for this project is:
 - [React Router Dom](https://reactrouter.com/en/main) - To facilitate the use of routes;
 - [Material UI](https://mui.com/) - To help with the project's UI;
 - [Diego's Fake API](https://github.com/DiegoSilva94/FakeApiJs) - Just a simple API made with JSON;
+
+## ToDo List
+
+- Unit Tests;
+- Acessibility;
+- State Management;
+- Improve API feedbacks;
+- Improve Type Assertions;
