@@ -76,13 +76,12 @@ function Post() {
                         {post?.data?.content}
                     </Typography>
                     {
-                        post?.data?.user_id === user.id ?
-                            <Box sx={{ mt: 1, fontSize: 2 }}>
-                                <Edit fontSize="small" color="primary" sx={{ cursor: 'pointer', mr: 1 }} onClick={() => setEditPost(true)} />
-                                <Delete fontSize="small" color="primary" sx={{ cursor: 'pointer' }} onClick={() => DeleteComment()} />
-                                <EditPost postId={post.data.id} open={editPost} setFetchPost={setFetchPost} setEditPost={setEditPost} />
-                            </Box>
-                            : null
+                        post?.data?.user_id === user.id &&
+                        <Box sx={{ mt: 1, fontSize: 2 }}>
+                            <Edit fontSize="small" color="primary" sx={{ cursor: 'pointer', mr: 1 }} onClick={() => setEditPost(true)} />
+                            <Delete fontSize="small" color="primary" sx={{ cursor: 'pointer' }} onClick={() => DeleteComment()} />
+                            <EditPost postId={post.data.id} open={editPost} setFetchPost={setFetchPost} setEditPost={setEditPost} />
+                        </Box>
                     }
                 </CardContent>
             </Card>

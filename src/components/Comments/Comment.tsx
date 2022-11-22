@@ -32,13 +32,12 @@ function Comment({ postId, comment, setFetchComments }) {
             <CardContent>
                 <Typography variant="body2" color="text.secondary">{comment.content}</Typography>
                 {
-                    user.id === comment.user_id ?
-                        <Box sx={{ mt: 1, fontSize: 2 }}>
-                            <Edit fontSize="small" color="primary" sx={{ cursor: 'pointer', mr: 1 }} onClick={() => setEditComment(true)} />
-                            <Delete fontSize="small" color="primary" sx={{ cursor: 'pointer' }} onClick={() => DeleteComment()} />
-                            <EditComment commentId={comment.id} postId={postId} open={editComment} setFetchComments={setFetchComments} setEditComment={setEditComment} />
-                        </Box>
-                        : null
+                    user.id === comment.user_id &&
+                    <Box sx={{ mt: 1, fontSize: 2 }}>
+                        <Edit fontSize="small" color="primary" sx={{ cursor: 'pointer', mr: 1 }} onClick={() => setEditComment(true)} />
+                        <Delete fontSize="small" color="primary" sx={{ cursor: 'pointer' }} onClick={() => DeleteComment()} />
+                        <EditComment commentId={comment.id} postId={postId} open={editComment} setFetchComments={setFetchComments} setEditComment={setEditComment} />
+                    </Box>
                 }
             </CardContent>
         </Card>
