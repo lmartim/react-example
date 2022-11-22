@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route
+} from "react-router-dom";
+
+import AuthLayout from './layouts/AuthLayout'
+import ProtectedLayout from './layouts/ProtectedLayout'
+
+import Login from './pages/Auth/Login'
+import Register from './pages/Auth/Register'
+import Posts from './pages/Posts/Posts'
+import Post from './pages/Posts/Post'
+import CreatePost from './pages/Posts/CreatePost'
+
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    console.log()
+
+    return (
+        <Router>
+            <div>
+                <Routes>
+                    <Route path="" element={<AuthLayout />}>
+                        <Route path="" element={<Login />} />
+                        <Route path="register" element={<Register />} />
+                    </Route>
+                    <Route path="posts" element={<ProtectedLayout />}>
+                        <Route path="" element={<Posts />} />
+                        <Route path=":postId" element={<Post />} />
+                        <Route path="create" element={<CreatePost />} />
+                    </Route>
+                </Routes>
+            </div>
+        </Router>
+    )
 }
 
 export default App;
